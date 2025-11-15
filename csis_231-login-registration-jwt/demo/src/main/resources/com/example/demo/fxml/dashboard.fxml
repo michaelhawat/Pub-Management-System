@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo.controllers.DashboardController"
+            prefWidth="1200" prefHeight="800">
+    <children>
+        <!-- Top Navigation Bar -->
+        <HBox styleClass="topbar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <children>
+                <Label text="🍺 Pub Management System" styleClass="title-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Refresh" onAction="#refreshData" styleClass="ghost-button"/>
+                <Button text="Logout" onAction="#logout" styleClass="danger-button"/>
+            </children>
+        </HBox>
+        
+        <!-- Main Content -->
+        <VBox spacing="20" AnchorPane.topAnchor="70" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" 
+              style="-fx-padding: 20;">
+            <children>
+                <!-- Statistics Cards -->
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <children>
+                        <VBox styleClass="card" prefWidth="200">
+                            <children>
+                                <Label text="Total Orders" styleClass="subtitle-label"/>
+                                <Label fx:id="totalOrdersLabel" text="0" styleClass="title-label"/>
+                            </children>
+                        </VBox>
+                        <VBox styleClass="card" prefWidth="200">
+                            <children>
+                                <Label text="Open Orders" styleClass="subtitle-label"/>
+                                <Label fx:id="openOrdersLabel" text="0" styleClass="title-label"/>
+                            </children>
+                        </VBox>
+                        <VBox styleClass="card" prefWidth="200">
+                            <children>
+                                <Label text="Occupied Tables" styleClass="subtitle-label"/>
+                                <Label fx:id="occupiedTablesLabel" text="0" styleClass="title-label"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                
+                <!-- Navigation Buttons -->
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <children>
+                        <Button text="📋 Orders" onAction="#goToOrders" styleClass="primary-button"/>
+                        <Button text="🍺 Products" onAction="#goToProducts" styleClass="primary-button"/>
+                        <Button text="🪑 Tables" onAction="#goToTables" styleClass="primary-button"/>
+                        <Button text="📅 Reservations" onAction="#goToReservations" styleClass="primary-button"/>
+                        <Button text="👥 Customers" onAction="#goToCustomers" styleClass="primary-button"/>
+                    </children>
+                </HBox>
+                
+                <!-- Tables Section -->
+                <HBox spacing="20" HBox.hgrow="ALWAYS">
+                    <children>
+                        <!-- Open Orders Table -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Open Orders" styleClass="title-label"/>
+                                <TableView fx:id="openOrdersTable" prefHeight="300">
+                                    <columns>
+                                        <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="80"/>
+                                        <TableColumn fx:id="customerIdColumn" text="Customer" prefWidth="80"/>
+                                        <TableColumn fx:id="customerNameColumn" text="Customer Name" prefWidth="80"/>
+                                        <TableColumn fx:id="tableIdColumn" text="Table" prefWidth="60"/>
+                                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="80"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                        
+                        <!-- Tables Status -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Table Status" styleClass="title-label"/>
+                                <TableView fx:id="tablesTable" prefHeight="300">
+                                    <columns>
+                                        <TableColumn fx:id="tableIdColumn2" text="Table ID" prefWidth="80"/>
+                                        <TableColumn fx:id="capacityColumn" text="Capacity" prefWidth="80"/>
+                                        <TableColumn fx:id="tableStatusColumn" text="Status" prefWidth="100"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

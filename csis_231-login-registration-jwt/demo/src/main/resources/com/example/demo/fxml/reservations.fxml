@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo.controllers.ReservationController"
+            prefWidth="1200" prefHeight="800">
+    <children>
+        <!-- Top Navigation Bar -->
+        <HBox styleClass="topbar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <children>
+                <Button text="← Dashboard" onAction="#goToDashboard" styleClass="ghost-button"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Refresh" onAction="#refreshReservations" styleClass="ghost-button"/>
+            </children>
+        </HBox>
+        
+        <!-- Main Content -->
+        <VBox spacing="20" AnchorPane.topAnchor="70" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" 
+              style="-fx-padding: 20;">
+            <children>
+                <Label text="📅 Reservation Management" styleClass="title-label"/>
+                
+                <!-- Reservations Table -->
+                <VBox styleClass="card">
+                    <children>
+                        <Label text="Reservations" styleClass="subtitle-label"/>
+                        <TableView fx:id="reservationsTable" prefHeight="400">
+                            <columns>
+                                <TableColumn fx:id="reservationIdColumn" text="Reservation ID" prefWidth="120"/>
+                                <TableColumn fx:id="tableIdColumn" text="Table" prefWidth="80"/>
+                                <TableColumn fx:id="customerIdColumn" text="Customer" prefWidth="80"/>
+                                <TableColumn fx:id="datetimeColumn" text="Date/Time" prefWidth="200"/>
+                                <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+                
+                <!-- Reservation Form -->
+                <VBox styleClass="card">
+                    <children>
+                        <Label text="Add/Edit Reservation" styleClass="subtitle-label"/>
+                        <GridPane hgap="15" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="20"/>
+                                <ColumnConstraints percentWidth="30"/>
+                                <ColumnConstraints percentWidth="20"/>
+                                <ColumnConstraints percentWidth="30"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Table:" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <ComboBox fx:id="tableCombo" promptText="Select Table" styleClass="combo-field" 
+                                          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                
+                                <Label text="Customer:" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                                <ComboBox fx:id="customerCombo" promptText="Select Customer" styleClass="combo-field" 
+                                          GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                                <Button text="+ Add Customer" onAction="#openAddCustomerDialog"
+                                        style="-fx-background-color: transparent; -fx-text-fill: #007bff; -fx-underline: true;"
+                                        GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" styleClass="primary-button"/>
+
+
+                                <Label text="Date:" styleClass="field-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <DatePicker fx:id="datePicker" styleClass="form-field" 
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                
+                                <Label text="Time:" styleClass="field-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                                <TextField fx:id="timeField" promptText="HH:MM" styleClass="form-field" 
+                                           GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                            </children>
+                        </GridPane>
+                        
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <children>
+                                <Button fx:id="addButton" text="Add Reservation" onAction="#addReservation" styleClass="primary-button"/>
+                                <Button fx:id="updateButton" text="Update Reservation" onAction="#updateReservation" styleClass="secondary-button"/>
+                                <Button fx:id="deleteButton" text="Delete Reservation" onAction="#deleteReservation" styleClass="danger-button"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

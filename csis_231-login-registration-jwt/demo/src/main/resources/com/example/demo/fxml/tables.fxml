@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo.controllers.TableController"
+            prefWidth="1200" prefHeight="800">
+    <children>
+        <!-- Top Navigation Bar -->
+        <HBox styleClass="topbar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <children>
+                <Button text="← Dashboard" onAction="#goToDashboard" styleClass="ghost-button"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Refresh" onAction="#refreshTables" styleClass="ghost-button"/>
+            </children>
+        </HBox>
+        
+        <!-- Main Content -->
+        <VBox spacing="20" AnchorPane.topAnchor="70" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" 
+              style="-fx-padding: 20;">
+            <children>
+                <Label text="🪑 Table Management" styleClass="title-label"/>
+                
+                <!-- Tables Table -->
+                <VBox styleClass="card">
+                    <children>
+                        <Label text="Tables" styleClass="subtitle-label"/>
+                        <TableView fx:id="tablesTable" prefHeight="400">
+                            <columns>
+                                <TableColumn fx:id="tableIdColumn" text="Table ID" prefWidth="100"/>
+                                <TableColumn fx:id="capacityColumn" text="Capacity" prefWidth="100"/>
+                                <TableColumn fx:id="statusColumn" text="Status" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+                
+                <!-- Table Form -->
+                <VBox styleClass="card">
+                    <children>
+                        <Label text="Add/Edit Table" styleClass="subtitle-label"/>
+                        <GridPane hgap="15" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="20"/>
+                                <ColumnConstraints percentWidth="30"/>
+                                <ColumnConstraints percentWidth="20"/>
+                                <ColumnConstraints percentWidth="30"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Capacity:" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="capacityField" promptText="4" styleClass="form-field" 
+                                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                
+                                <Label text="Status:" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                                <ComboBox fx:id="statusCombo" promptText="Select Status" styleClass="combo-field" 
+                                          GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                            </children>
+                        </GridPane>
+                        
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <children>
+                                <Button fx:id="addButton" text="Add Table" onAction="#addTable" styleClass="primary-button"/>
+                                <Button fx:id="updateButton" text="Update Table" onAction="#updateTable" styleClass="secondary-button"/>
+                                <Button fx:id="deleteButton" text="Delete Table" onAction="#deleteTable" styleClass="danger-button"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
