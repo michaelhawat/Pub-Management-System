@@ -8,6 +8,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class ResetController {
     @FXML private TextField email;
@@ -21,6 +24,17 @@ public class ResetController {
                 email.setText(TempAuth.resetEmail);
             }
         });
+        
+        // Add Enter key support - pressing Enter in any field triggers reset
+        EventHandler<KeyEvent> enterHandler = event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onReset();
+            }
+        };
+        
+        email.setOnKeyPressed(enterHandler);
+        code.setOnKeyPressed(enterHandler);
+        newPassword.setOnKeyPressed(enterHandler);
     }
 
     public void onReset() {

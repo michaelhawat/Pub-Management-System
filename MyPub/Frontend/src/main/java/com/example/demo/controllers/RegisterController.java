@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class RegisterController {
 
@@ -19,7 +22,23 @@ public class RegisterController {
     @FXML private TextField lastName;
     @FXML private TextField phone;           // optional
 
-
+    @FXML
+    public void initialize() {
+        // Add Enter key support - pressing Enter in any field triggers register
+        EventHandler<KeyEvent> enterHandler = event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onRegister();
+            }
+        };
+        
+        username.setOnKeyPressed(enterHandler);
+        email.setOnKeyPressed(enterHandler);
+        password.setOnKeyPressed(enterHandler);
+        confirmPassword.setOnKeyPressed(enterHandler);
+        firstName.setOnKeyPressed(enterHandler);
+        lastName.setOnKeyPressed(enterHandler);
+        phone.setOnKeyPressed(enterHandler);
+    }
 
     @FXML
     private void onRegister() {

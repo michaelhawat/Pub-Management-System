@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" styleClass="form-card"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.controllers.ReservationDialogController">
+    <padding>
+        <Insets top="28" right="28" bottom="28" left="28"/>
+    </padding>
+
+    <Label text="Create Reservation" styleClass="title-label"/>
+
+    <Label fx:id="tableInfoLabel" text="Table Information" styleClass="subtitle-label"/>
+
+    <VBox spacing="8">
+        <Label text="Customer:" styleClass="field-label"/>
+        <ComboBox fx:id="customerCombo" styleClass="combo-field" prefWidth="400"/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Date:" styleClass="field-label"/>
+        <DatePicker fx:id="datePicker" styleClass="form-field" prefWidth="400"/>
+    </VBox>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <VBox spacing="8">
+            <Label text="Hour:" styleClass="field-label"/>
+            <Spinner fx:id="hourSpinner" prefWidth="100" styleClass="form-field"/>
+        </VBox>
+        <VBox spacing="8">
+            <Label text="Minute:" styleClass="field-label"/>
+            <Spinner fx:id="minuteSpinner" prefWidth="100" styleClass="form-field"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <Button fx:id="cancelButton" text="Cancel" onAction="#cancel" styleClass="ghost-button"/>
+        <Button fx:id="createButton" text="Create Reservation" onAction="#createReservation" styleClass="primary-button"/>
+    </HBox>
+</VBox>
+

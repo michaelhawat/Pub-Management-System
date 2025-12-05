@@ -6,9 +6,20 @@ import com.example.demo.security.TempAuth;
 import com.example.demo.util.AlertUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 
 public class ForgotController {
     @FXML private TextField emailOrUsername;
+
+    @FXML
+    public void initialize() {
+        // Add Enter key support - pressing Enter triggers send
+        emailOrUsername.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onSend();
+            }
+        });
+    }
 
     public void onSend(){
         try {

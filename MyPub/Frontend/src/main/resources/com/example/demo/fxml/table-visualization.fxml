@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane"
+            prefWidth="1200"
+            prefHeight="800"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo.controllers.TableVisualizationController">
+
+    <top>
+        <VBox spacing="12" styleClass="visual-header">
+            <padding>
+                <Insets top="20" right="28" bottom="18" left="28"/>
+            </padding>
+
+            <Label text="3D Table Reservation System" styleClass="title-label"/>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button text="← Back to Reservations"
+                        onAction="#backToTables"
+                        styleClass="ghost-button"/>
+                <Button text="🔄 Refresh"
+                        onAction="#refreshData"
+                        styleClass="primary-button"/>
+                <Button text="↺ Reset View"
+                        onAction="#resetView"
+                        styleClass="secondary-button"/>
+                <Label text="Filter:" styleClass="field-label"/>
+                <ComboBox fx:id="statusFilterCombo"
+                          prefWidth="140"
+                          styleClass="combo-field"/>
+                <Label fx:id="statusLabel"
+                       text="Preparing visualization..."
+                       styleClass="status-label"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane styleClass="visualization-placeholder"/>
+    </center>
+</BorderPane>
+

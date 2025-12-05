@@ -14,6 +14,7 @@
                 <Button text="← Dashboard" onAction="#goToDashboard" styleClass="ghost-button"/>
                 <Region HBox.hgrow="ALWAYS"/>
                 <Button text="Refresh" onAction="#refreshCustomers" styleClass="ghost-button"/>
+                <Button text="3D View" onAction="#openVisualization" styleClass="primary-button"/>
             </children>
         </HBox>
         

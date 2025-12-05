@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/csis_231-login-registration-jwt/demo/pom.xml" />
         <option value="$PROJECT_DIR$/csis_231-login-registration-jwt/csis231-api/pom.xml" />
+        <option value="$PROJECT_DIR$/MyPub/Frontend/pom.xml" />
+        <option value="$PROJECT_DIR$/MyPub/Backend/pom.xml" />
       </list>
     </option>
   </component>

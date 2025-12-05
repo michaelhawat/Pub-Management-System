@@ -163,6 +163,11 @@ public class CustomerController {
     public void refreshCustomers() {
         loadCustomers();
     }
+
+    @FXML
+    public void openVisualization() {
+        Launcher.go("customer-visualization.fxml", "Customer Insights (3D)");
+    }
     
     @FXML
     public void goToDashboard() {

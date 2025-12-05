@@ -333,4 +333,9 @@ public class ReservationController {
     public void goToDashboard() {
         Launcher.go("dashboard.fxml", "Dashboard");
     }
+    
+    @FXML
+    public void openVisualization() {
+        Launcher.go("table-visualization.fxml", "3D Table Reservation System");
+    }
 }

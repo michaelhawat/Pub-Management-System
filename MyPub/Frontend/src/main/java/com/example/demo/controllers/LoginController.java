@@ -10,10 +10,28 @@ import com.example.demo.util.AlertUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class LoginController {
     @FXML private TextField username;
     @FXML private PasswordField password;
+
+    @FXML
+    public void initialize() {
+        // Add Enter key support - pressing Enter in username or password field triggers login
+        username.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onLogin();
+            }
+        });
+        
+        password.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onLogin();
+            }
+        });
+    }
 
     public void onLogin() {
         try {

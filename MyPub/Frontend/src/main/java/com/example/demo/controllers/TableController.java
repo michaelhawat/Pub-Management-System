@@ -186,6 +186,11 @@ public class TableController {
     }
     
     @FXML
+    public void openVisualization() {
+        Launcher.go("table-visualization.fxml", "3D Table Reservation System");
+    }
+    
+    @FXML
     public void goToDashboard() {
         Launcher.go("dashboard.fxml", "Dashboard");
     }

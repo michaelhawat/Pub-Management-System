@@ -9,9 +9,21 @@ import com.example.demo.security.TokenStore;
 import com.example.demo.util.AlertUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class OtpController {
     @FXML private TextField code;
+
+    @FXML
+    public void initialize() {
+        // Add Enter key support - pressing Enter in code field triggers verify
+        code.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onVerify();
+            }
+        });
+    }
 
     public void onVerify() {
         try {
