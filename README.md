@@ -52,6 +52,39 @@ A comprehensive pub management system built with Spring Boot backend and JavaFX 
 5. **Customer Management**: Customer database management
 6. **Reservation Management**: Table booking system
 
+## 🎮 3D Visualization Features 
+
+### Customer Insights (3D)
+- Interactive 3D customer visualization
+- Real-time data refresh
+- Smooth animations and camera movement
+- Implemented using:
+  - `CustomerVisualizationController`
+  - `CustomerVisualization.fxml`
+
+### Table Reservation 3D View
+- 3D floor layout representing tables
+- Color-coded table status:
+  - Available
+  - Reserved
+  - Occupied
+- View rotation, reset, and refresh
+- Filtering by table status
+- Implemented using:
+  - `TableVisualizationController`
+  - `TableVisualization.fxml`
+
+### Reservation Creation Dialog
+- Modal popup reservation creation
+- Customer selection
+- Date and time selection
+- Hour and minute spinners
+- Implemented using:
+  - `ReservationDialogController`
+  - `ReservationDialog.fxml`
+
+---
+
 ## 🛠️ Technical Implementation
 
 ### Backend Components
